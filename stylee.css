@@ -1,0 +1,11 @@
+body{
+    background-color: #C9DABF;
+    
+}
+    head{
+        text-transform: capitalize;
+        height: 80px;
+    }
+    h2{
+        display: flex;
+    }
