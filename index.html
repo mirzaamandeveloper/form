@@ -1,69 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Registration Form</title>
+    <style>
+        /* Keyframes for animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+            }
+        }
+
+        @keyframes hoverEffect {
+            0% {
+                background-color: #28a745;
+            }
+            50% {
+                background-color: #20c997;
+            }
+            100% {
+                background-color: #28a745;
+            }
+        }
+
+        /* Basic styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f06, #f79);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .form-container {
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            color: #333;
+            text-align: center;
+            animation: fadeIn 2s ease-out;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            animation: fadeIn 2.5s ease-out;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        select,
+        textarea {
+            font-size: 18px;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #007bff;
+            box-shadow: 0px 0px 12px rgba(0, 123, 255, 0.5);
+            background-color: #e9f5ff;
+        }
+
+        textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1);
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+
+        input[type="radio"]:hover,
+        input[type="checkbox"]:hover {
+            transform: scale(1.2);
+            background-color: #d4edda;
+        }
+
+        label {
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        input[type="submit"] {
+            background-color: #28a745;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            animation: pulse 2s infinite;
+        }
+
+        input[type="submit"]:hover {
+            animation: hoverEffect 0.5s infinite;
+            transform: scale(1.05);
+        }
+    </style>
 </head>
-<head><B><center>REGISTRATION FORM</center></B></head>
-<br>
-<br>
 <body>
-    <head><link rel="stylesheet"href="stylee.css"></head>
-<form action="/action.php">
-<input type="text" placeholder="enter user name">
-<br b/>
-<br b/>
-<input type="password" placeholder="password">
-<br b/>
-<br b/>
-<label for="123">
-<input type="radio"class="12"id="123" name="class">12
-</label>
-<br b/>
-<br b/>
-<label for="121">
-<input type="radio"id="121" class="11"name="class">11
-</label>
-<br b/>
-<br b/>
-<b>select your fav subject</b>
-<br b/>
-<br b/>
-
-<label for="101">
-<input type="checkbox"value=math id="101">math
-<br b/>
-<br  b/>
-<label for="102">
-<input type="checkbox"value=phy id="102">phy
-<br b/>
-<br b/>
-<label for="104">
-<label for="104">
-<input type="checkbox"value=chem id="104">chem
-</label>
-<br b/>
-<br b/>
-<h2 style="font-family: Arial, Helvetica, sans-serif;">select your state</h2>
-<select name="state">
-<option name="telangana">telangana</option>
-<option name="maharastra">maharastra</option>
-<option name="kerala">kerala</option>
-<option name="karnataka">karnataka</option>
-</select>
-<br b/>
-<br b/>
-<br b/>
-<textarea name="feedback"placeholder="please give your feedback here">feedback</textarea>
-<input style="color: rgb(121, 132, 97);" type="submit"value="submit">
-
-
-</form>
-
-    
-
-
+    <div class="form-container">
+        <h1>Registration Form</h1>
+        <form action="/action.php">
+            <input type="text" placeholder="Enter username" required>
+            <input type="password" placeholder="Enter password" required>
+            
+            <label>Select your class:</label>
+            <label for="class12">
+                <input type="radio" id="class12" name="class" value="12"> Class 12
+            </label>
+            <label for="class11">
+                <input type="radio" id="class11" name="class" value="11"> Class 11
+            </label>
+            
+            <label>Select your favorite subjects:</label>
+            <label for="math">
+                <input type="checkbox" id="math" value="Math"> Math
+            </label>
+            <label for="phy">
+                <input type="checkbox" id="phy" value="Physics"> Physics
+            </label>
+            <label for="chem">
+                <input type="checkbox" id="chem" value="Chemistry"> Chemistry
+            </label>
+            
+            <label for="state">Select your state:</label>
+            <select name="state" id="state">
+                <option value="telangana">Telangana</option>
+                <option value="maharashtra">Maharashtra</option>
+                <option value="kerala">Kerala</option>
+                <option value="karnataka">Karnataka</option>
+            </select>
+            
+            <textarea name="feedback" placeholder="Please give your feedback here"></textarea>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
 </body>
-</html
+</html>
